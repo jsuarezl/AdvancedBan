@@ -1,0 +1,48 @@
+mysql:
+  host: 'localhost'
+  port: 3306
+  database: 'advancedban'
+  user: 'bans'
+  password: 'S3CUR3P4SSW0RD'
+
+redis:
+  enabled: false
+  host: 'localhost'
+  port: 6739
+  password: 'S3CUR3P4SSW0RD'
+
+mute-commands:
+- 'me'
+- 'say'
+- 'action'
+- 'eaction'
+- 'describe'
+- 'edescribe'
+- 'eme'
+- 'w'
+- 'm'
+- 'pm'
+- 'whisper'
+- 'ewhisper'
+- 'emsg'
+- 'msg'
+- 'etell'
+- 'tell'
+- 'er'
+- 'r'
+- 'reply'
+- 'ereply'
+- 'ac'
+- 'eac'
+- 'amsg'
+- 'eamsg'
+- 'ehelpop'
+- 'p msg'
+
+exempt-players:
+- 'Leoko'
+- 'md5'
+- 'dutchy1001'
+- 'ItzSomebody'
+
+date-format: "dd.MM.yyyy-HH:mm"

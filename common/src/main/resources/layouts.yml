@@ -1,0 +1,45 @@
+layouts:
+  hacks:
+    alias:
+    - 'hack'
+    - 'hacking'
+    message-temp:
+    - '&7Banned for Hacking'
+    - '&c&oBanned by %OPERATOR%'
+    - '&7'
+    - '&cIt seems like you are using a'
+    - '&chacked client please disable it!'
+    - '&cUnban in &8» &7%DURATION%'
+    - '&7'
+    - '&8Unban application on Discord'
+    - '&eDiscord &8» &c&ndiscord.gg/<discord>'
+    message-perma:
+    - '&7Banned for Hacking'
+    - '&c&oBanned by %OPERATOR%'
+    - '&7'
+    - '&cIt seems like you are using a'
+    - '&chacked client please disable it!'
+    - '&7'
+    - '&8Unban application on Discord'
+    - '&eDiscord &8» &c&ndiscord.gg/<discord>'
+    time:
+    - '3d'
+    - '1w'
+    - '15d'
+    - '1mo'
+    - '3mo'
+    - 'perma'
+  spam:
+    alias:
+    - 'spamming'
+    message-temp:
+    - '&7Banned for Spamming'
+    - '&c&oBanned by %OPERATOR%'
+    - '&7'
+    - '&cIt seems like you are spamming other servers'
+    - '&cUnban in &8» &7%DURATION%'
+    - '&7'
+    - '&8Unban application on Discord'
+    - '&eDiscord &8» &c&ndiscord.gg/<discord>'
+    time:
+    - '1mo'
