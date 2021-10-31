@@ -1,8 +1,10 @@
 package me.leoko.advancedban.common;
 
 import me.leoko.advancedban.common.cache.CacheProvider;
+import me.leoko.advancedban.common.player.PlayerFactory;
+import me.leoko.advancedban.common.punishment.PunishmentFactory;
 import me.leoko.advancedban.common.scheduler.SchedulerAdapter;
-import me.leoko.advancedban.common.storage.AbstractStorageProvider;
+import me.leoko.advancedban.common.storage.StorageProvider;
 import me.leoko.advancedban.common.user.UserManager;
 
 /**
@@ -10,19 +12,28 @@ import me.leoko.advancedban.common.user.UserManager;
  */
 public class AdvancedBan {
 
-    private final SchedulerAdapter schedulerAdapter; // this field shouldn't be exposed
-    private final AbstractStorageProvider storageProvider; // this field shouldn't be exposed
+    private final StorageProvider storageProvider;
     private final CacheProvider cacheProvider;
     private final UserManager userManager;
+    private final PunishmentFactory punishmentFactory;
 
-    public AdvancedBan(SchedulerAdapter schedulerAdapter) {
-        this.schedulerAdapter = schedulerAdapter;
-        this.storageProvider = null; // TODO add implementation
-        this.cacheProvider = new CacheProvider(schedulerAdapter, storageProvider::getUser);
-        userManager = new UserManager(schedulerAdapter, cacheProvider, storageProvider);
+    public AdvancedBan(SchedulerAdapter schedulerAdapter, PlayerFactory<?> playerAdapter) {
+        storageProvider = null; // TODO add implementation
+        punishmentFactory = new PunishmentFactory(schedulerAdapter, storageProvider);
+        cacheProvider = new CacheProvider(schedulerAdapter, storageProvider, punishmentFactory);
+        userManager = new UserManager(schedulerAdapter, cacheProvider, storageProvider, punishmentFactory, playerAdapter);
     }
 
     public UserManager getUserManager() {
         return userManager;
+    }
+
+    public PunishmentFactory getPunishmentFactory() {
+        return punishmentFactory;
+    }
+
+    public void shutdown() {
+        storageProvider.shutdown();
+        cacheProvider.shutdown();
     }
 }
